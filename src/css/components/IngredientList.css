@@ -1,0 +1,12 @@
+.ingredient {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px auto;
+    width: auto;
+}
+
+button {
+    height: 2em;
+    margin-left: 5px;
+}

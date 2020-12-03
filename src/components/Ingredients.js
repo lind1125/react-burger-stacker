@@ -6,8 +6,9 @@ const Ingredients = ({name}) => {
 
   return( 
   <div>
-      <div>
-       {name}
+      <div className="ingredient">
+       <p>{name}</p>
+       <button>+</button>
       </div>
   </div>
   )
