@@ -4,7 +4,6 @@ import IngredientList from "./components/IngredientList";
 import BurgerPane from "./components/BurgerPane";
 // CSS imports
 import "./css/App.css";
-import "./css/components/IngredientList.css";
 
 
 
@@ -26,17 +25,28 @@ const App = () => {
     { name: "Onion", color: "lightyellow" },
   ]
 
-    const [ingredients, setIngredients] = useState(ingredientsArr)
-    
-    
+// useState give us reference to state by the first parameter in the array and the ability to set state with second passed function
+const [ingredients, setIngredients] = useState(ingredientsArr)
+const [stack, setStack] = useState([])
+
+const addToStack = (ingredient) => {
+  setStack([ingredient, ...stack])
+
+}
+
+const deleteList = () => {
+  setStack([])
+}
 
   return (
     <div className="App">
       <IngredientList
       ingredients={ingredients}
-     
+      addToStack={addToStack}
       />
       <BurgerPane 
+      stack={stack}
+      deleteList={deleteList}
       />
     </div>
   );
