@@ -1,31 +1,25 @@
 import React, {useState} from "react";
 import Ingredients from './Ingredients'
 
-const IngredientList = () => {
+const IngredientList = ({ingredients}) => {
 
-  const [ingredients, setIngredients] = useState(
-    [
-      { name: "Kaiser Bun", color: "saddlebrown" },
-      { name: "Sesame Bun", color: "sandybrown" },
-      { name: "Gluten Free Bun", color: "peru" },
-      { name: "Lettuce Wrap", color: "olivedrab" },
-      { name: "Beef Patty", color: "#3F250B" },
-      { name: "Soy Patty", color: "#3F250B" },
-      { name: "Black Bean Patty", color: "#3F250B" },
-      { name: "Chicken Patty", color: "burlywood" },
-      { name: "Lettuce", color: "lawngreen" },
-      { name: "Tomato", color: "tomato" },
-      { name: "Bacon", color: "maroon" },
-      { name: "Onion", color: "lightyellow" },
-    ]
-  )
-  
+// const [ingredientList, setIngredientList] = useState({ingredients})
+const [stack, setStack] = useState([])
+
+const addToStack = (ingredient) => {
+  setStack([ingredient, ...stack])
+  // setTodos([todo, ...todos])
+  console.log(stack)
+}
+
   return( 
   <div>
       <h1>IngredientList</h1>
       {ingredients.map(ingredient => (
       < Ingredients 
-      name={ingredient.name}/>
+      name={ingredient.name}
+      addToStack={addToStack} 
+      />
       ))}
   </div>
   )
