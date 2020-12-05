@@ -5,8 +5,12 @@ import shortid from 'shortid'
 const BurgerStack = ({stack}) => {
 
   const renderList = stack.map(ingredient => {
-    return <Ingredients key={shortid.generate()} name={ingredient.name} />
-  })
+    return (
+    <li key={shortid.generate()}>
+      <Ingredients name={ingredient.name} />
+     </li>
+    )
+})
 
   return <div>
     <ul>
